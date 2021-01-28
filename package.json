@@ -13,10 +13,11 @@
     "styled-components": "5.2.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
     "lint": "eslint --ignore-path .gitignore --ext .js .",
     "prettier": "prettier --ignore-path .gitignore \"**/*.+(js|json)\"",
     "format": "npm run prettier -- --write",
