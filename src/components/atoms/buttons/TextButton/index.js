@@ -3,15 +3,13 @@ import styled from 'styled-components'
 
 const Button = styled.button`
   color: ${(props) => props.theme.light};
-  background-color: ${(props) => props.theme.dark};
-  border: 5px solid ${(props) => props.theme.light};
-  border-radius: 10px;
   padding: 10px;
   font-size: 16px;
-  min-width: 125px;
+  background-color: inherit;
+  border: none;
 `
 
-const PrimaryButton = ({ buttonText, disabled, onClick }) => {
+const TextButton = ({ buttonText, disabled, onClick }) => {
   return (
     <Button type='button' disabled={disabled} onClick={onClick}>
       {buttonText}
@@ -19,4 +17,4 @@ const PrimaryButton = ({ buttonText, disabled, onClick }) => {
   )
 }
 
-export default PrimaryButton
+export default TextButton

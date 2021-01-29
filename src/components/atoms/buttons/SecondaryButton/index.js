@@ -7,10 +7,15 @@ const Button = styled.button`
   border-radius: 10px;
   padding: 10px;
   font-size: 16px;
+  min-width: 125px;
 `
 
-const SecondaryButton = ({ buttonText }) => {
-  return <Button type='button'>{buttonText}</Button>
+const SecondaryButton = ({ buttonText, disabled, onClick }) => {
+  return (
+    <Button type='button' disabled={disabled} onClick={onClick}>
+      {buttonText}
+    </Button>
+  )
 }
 
 export default SecondaryButton

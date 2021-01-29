@@ -9,8 +9,9 @@ const LoginContainer = styled.div`
   border-radius: 10px;
   padding: 10px;
   font-size: 16px;
-  height: 300px;
+  min-height: 300px;
   width: 50%;
+  min-width: 300px;
 `
 
 export default LoginContainer
