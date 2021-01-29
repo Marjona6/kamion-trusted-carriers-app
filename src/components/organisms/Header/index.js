@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
+import Link from 'next/link'
+
 import H1 from '../../atoms/texts/H1'
 import PrimaryButton from '../../atoms/buttons/PrimaryButton'
 
@@ -15,7 +17,11 @@ const Header = () => {
   return (
     <HeaderDiv>
       <H1>Kamion Trusted Carriers App</H1>
-      <PrimaryButton buttonText='Log in or register' />
+      <Link href='/login'>
+        <a style={{ textDecoration: 'none' }}>
+          <PrimaryButton buttonText='Log in or register' />
+        </a>
+      </Link>
     </HeaderDiv>
   )
 }

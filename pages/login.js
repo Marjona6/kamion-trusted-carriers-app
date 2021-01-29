@@ -1,14 +1,15 @@
 import React from 'react'
+
 import Header from '../src/components/organisms/Header'
 import H2 from '../src/components/atoms/texts/H2'
 
-const Home = () => {
+const LoginOrRegister = () => {
   return (
     <>
       <Header />
-      <H2>Welcome to the Kamion Trusted Carriers App</H2>
+      <H2>Please Log In or Register</H2>
     </>
   )
 }
 
-export default Home
+export default LoginOrRegister
