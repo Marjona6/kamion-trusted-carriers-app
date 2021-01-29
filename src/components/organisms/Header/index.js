@@ -8,6 +8,7 @@ const HeaderDiv = styled.div`
   justify-content: space-between;
   align-items: flex-end;
   background-color: ${(props) => props.theme.light};
+  border-bottom: 5px solid ${(props) => props.theme.dark};
 `
 
 const Header = () => {
