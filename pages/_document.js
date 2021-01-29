@@ -1,31 +1,43 @@
-import Document, { Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
+import Header from '../src/components/organisms/Header'
 
-export default class AppDocument extends Document {
-  static getInitialProps({ renderPage }) {
+export default class MyDocument extends Document {
+  static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet()
+    const originalRenderPage = ctx.renderPage
 
-    const page = renderPage((App) => (props) =>
-      sheet.collectStyles(<App {...props} />)
-    )
+    try {
+      ctx.renderPage = () =>
+        originalRenderPage({
+          enhanceApp: (App) => (props) =>
+            sheet.collectStyles(<App {...props} />)
+        })
 
-    const styleTags = sheet.getStyleElement()
-
-    return { ...page, styleTags }
+      const initialProps = await Document.getInitialProps(ctx)
+      return {
+        ...initialProps,
+        styles: (
+          <>
+            {initialProps.styles}
+            {sheet.getStyleElement()}
+          </>
+        )
+      }
+    } finally {
+      sheet.seal()
+    }
   }
-
-  render() {
-    return (
-      <html>
-        <Head>
-          <title>Kamion Trusted Carriers App</title>
-          {this.props.styleTags}
-        </Head>
-        <body>
-          <Main />
-          <NextScript />
-        </body>
-      </html>
-    )
-  }
+  //   render() {
+  //     return (
+  //       <Html>
+  //         <Head>{this.props.styleTags}</Head>
+  //         <body>
+  //           <Header />
+  //           <Main />
+  //           <NextScript />
+  //         </body>
+  //       </Html>
+  //     )
+  //   }
 }
