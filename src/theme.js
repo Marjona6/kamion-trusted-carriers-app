@@ -1,4 +1,4 @@
-export default {
+const theme = {
   font: 'Helvetica,Arial,sans-serif',
   dark: '#0B1C4D',
   light: '#FFFFFF',
@@ -7,3 +7,5 @@ export default {
   error: '#CB001C',
   success: '#00AA00'
 }
+
+export default theme

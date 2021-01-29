@@ -1,6 +1,5 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-import Header from '../src/components/organisms/Header'
 
 export default class MyDocument extends Document {
   static async getInitialProps(ctx) {
