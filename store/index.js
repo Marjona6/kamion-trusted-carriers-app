@@ -1,14 +1,10 @@
-import { createStore, combineReducers } from 'redux'
-import user from './reducers/user'
+import { createStore } from 'redux'
+import { createWrapper } from 'next-redux-wrapper'
+import { composeWithDevTools } from 'redux-devtools-extension'
+import reducers from './reducers'
 
-const makeStore (initialState = {}, context) => {
-  console.log({ user, initialState })
-  return createStore(
-    combineReducers({
-      user
-    }),
-    initialState
-  )
+const makeStore = (initialState = {}) => {
+  return createStore(reducers, initialState, composeWithDevTools())
 }
 
-export default makeStore
+export const wrapper = createWrapper(makeStore, { debug: true })

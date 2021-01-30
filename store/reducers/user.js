@@ -1,6 +1,4 @@
-import { createWrapper, HYDRATE } from 'next-redux-wrapper'
-import { createStore } from 'redux'
-import { composeWithDevTools } from 'redux-devtools-extension'
+import { HYDRATE } from 'next-redux-wrapper'
 
 const initialState = {
   token: '',
@@ -30,10 +28,4 @@ const user = (state = initialState, action) => {
   }
 }
 
-console.log(typeof user)
-
-const makeStore = () => createStore(user, composeWithDevTools())
-
-export const wrapper = createWrapper(makeStore, { debug: true })
-
-// export default user
+export default user

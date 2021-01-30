@@ -2,7 +2,7 @@ import React from 'react'
 import { ThemeProvider } from 'styled-components'
 
 import theme from '../src/theme'
-import { wrapper } from '../store/reducers/user'
+import { wrapper } from '../store'
 
 const MyApp = ({ Component, pageProps }) => (
   <ThemeProvider theme={theme}>
