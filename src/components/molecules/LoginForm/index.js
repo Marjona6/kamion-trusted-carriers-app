@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import axios from 'axios'
+import { useRouter } from 'next/router'
 
 import LoginContainer from '../../atoms/containers/LoginContainer'
 import TextInput from '../../atoms/inputs/TextInput'
@@ -22,6 +23,8 @@ const ButtonsContainer = styled.div`
 `
 
 const LoginForm = ({ setFormToShow }) => {
+  const router = useRouter()
+
   const [username, setUsername] = useState('')
   const [userPassword, setUserPassword] = useState('')
 
@@ -59,7 +62,7 @@ const LoginForm = ({ setFormToShow }) => {
                   username: username,
                   password: userPassword
                 }
-              })
+              }).then(router.push('/list'))
             }
           />
         </ButtonsContainer>

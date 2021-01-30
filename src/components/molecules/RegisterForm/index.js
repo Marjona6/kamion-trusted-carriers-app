@@ -30,8 +30,21 @@ const RegisterForm = ({ setFormToShow }) => {
   const [lastName, setLastName] = useState('')
   const [phoneNumber, setPhoneNumber] = useState('')
   const [userEmail, setUserEmail] = useState('')
+  const valuesArray = [
+    username,
+    userPassword,
+    reenteredPassword,
+    firstName,
+    lastName,
+    phoneNumber,
+    userEmail
+  ]
 
   const doPasswordsMatch = (password1, password2) => password1 === password2
+  const isValidated = (values) => !values.some((value) => value.length < 1)
+
+  const [isSuccessful, setIsSuccessful] = useState(false)
+
   return (
     <FlexDiv>
       <LoginContainer>
@@ -105,6 +118,7 @@ const RegisterForm = ({ setFormToShow }) => {
         <ButtonsContainer>
           <PrimaryButton
             buttonText='Register'
+            disabled={setIsSuccessful || !isValidated([valuesArray])}
             onClick={() => {
               console.log('values to post:', {
                 username,
@@ -127,6 +141,8 @@ const RegisterForm = ({ setFormToShow }) => {
                   email: userEmail
                 }
               })
+                .then(setIsSuccessful(true))
+                .then(console.log({ valuesArray }))
             }}
           />
         </ButtonsContainer>
