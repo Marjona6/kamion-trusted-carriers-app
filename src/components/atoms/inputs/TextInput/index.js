@@ -11,7 +11,9 @@ const TextInput = ({
   labelText,
   labelId,
   placeholderText,
-  required
+  required,
+  onChange,
+  value
 }) => {
   return (
     <>
@@ -22,6 +24,8 @@ const TextInput = ({
         name={labelId}
         placeholder={placeholderText}
         required={required}
+        onChange={onChange}
+        value={value}
       />
     </>
   )

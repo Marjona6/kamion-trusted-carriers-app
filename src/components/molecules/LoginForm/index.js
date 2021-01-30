@@ -35,6 +35,7 @@ const LoginForm = ({ setFormToShow }) => {
           labelId='username'
           labelText='Username'
           required
+          value={username}
           onChange={(e) => setUsername(e.target.value)}
         />
         <TextInput
@@ -43,6 +44,7 @@ const LoginForm = ({ setFormToShow }) => {
           labelId='password'
           labelText='Password'
           required
+          value={userPassword}
           onChange={(e) => setUserPassword(e.target.value)}
         />
         <ButtonsContainer>

@@ -43,6 +43,7 @@ const RegisterForm = ({ setFormToShow }) => {
           labelText='Username'
           required
           onChange={(e) => setUsername(e.target.value)}
+          value={username}
         />
         <TextInput
           type='password'
@@ -51,6 +52,7 @@ const RegisterForm = ({ setFormToShow }) => {
           labelText='Password'
           required
           onChange={(e) => setUserPassword(e.target.value)}
+          value={userPassword}
         />
         <TextInput
           type='password'
@@ -59,6 +61,7 @@ const RegisterForm = ({ setFormToShow }) => {
           labelText='Password'
           required
           onChange={(e) => setReenteredPassword(e.target.value)}
+          value={reenteredPassword}
         />
         {!doPasswordsMatch(userPassword, reenteredPassword) && (
           <ErrorText>Passwords do not match</ErrorText>
@@ -70,6 +73,7 @@ const RegisterForm = ({ setFormToShow }) => {
           labelText='First Name'
           required
           onChange={(e) => setFirstName(e.target.value)}
+          value={firstName}
         />
         <TextInput
           type='text'
@@ -78,6 +82,7 @@ const RegisterForm = ({ setFormToShow }) => {
           labelText='Last Name'
           required
           onChange={(e) => setLastName(e.target.value)}
+          value={lastName}
         />
         <TextInput
           type='email'
@@ -86,6 +91,7 @@ const RegisterForm = ({ setFormToShow }) => {
           labelText='Email'
           required
           onChange={(e) => setUserEmail(e.target.value)}
+          value={userEmail}
         />
         <TextInput
           type='tel'
@@ -94,6 +100,7 @@ const RegisterForm = ({ setFormToShow }) => {
           labelText='Phone Number'
           required
           onChange={(e) => setPhoneNumber(e.target.value)}
+          value={phoneNumber}
         />
         <ButtonsContainer>
           <PrimaryButton
