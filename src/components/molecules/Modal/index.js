@@ -19,13 +19,14 @@ const Modal = ({
   primaryButtonText,
   secondaryButtonText,
   primaryButtonOnClick,
-  secondaryButtonOnClick
+  secondaryButtonOnClick,
+  children
 }) => {
   return (
     <Overlay>
       <Body>
         <H2>{modalText}</H2>
-        <p>something something</p>
+        {children}
         <ButtonsContainer>
           {primaryButtonOnClick && (
             <PrimaryButton

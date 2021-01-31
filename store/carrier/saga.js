@@ -43,21 +43,20 @@ function* getCarriersTask(action) {
 
 function* addCarrierTask(action) {
   const { payload } = action
-  console.log({ action })
-  const { first_name, last_name, email, photo } = payload
+  const { token, formData } = payload
   try {
     const response = yield call(
       axios.post,
       `${BASE_URL}/api/shipper/carrier`,
-      { first_name, last_name, email, photo },
+      formData,
       {
         headers: {
-          Authorization: `Bearer ${token}`
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data'
         }
       }
     )
     const { data } = response
-    console.log({ response })
     yield put(addCarrierSuccess(data))
   } catch (e) {
     console.log(e)

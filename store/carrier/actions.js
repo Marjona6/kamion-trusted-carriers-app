@@ -23,9 +23,9 @@ export const getCarrierListError = (error) => ({
   payload: error
 })
 
-export const addCarrier = (token) => ({
+export const addCarrier = (data) => ({
   type: ADD_CARRIER_STARTED,
-  payload: token
+  payload: data
 })
 export const addCarrierSuccess = (data) => ({
   type: ADD_CARRIER_SUCCEEDED,
