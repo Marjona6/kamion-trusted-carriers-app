@@ -13,6 +13,10 @@ const ListingContainer = styled.div`
   min-height: 100px;
   min-width: 300px;
   margin: 20px 10px;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `
 
 export default ListingContainer

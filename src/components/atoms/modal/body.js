@@ -13,5 +13,10 @@ const Body = styled.div`
   position: static;
   border: 5px solid ${(props) => props.theme.secondary};
   border-radius: 15px;
+  @media (max-width: 600px) {
+    min-height: 100%;
+    margin: 0;
+    border-radius: 0;
+  }
 `
 export default Body
