@@ -14,7 +14,13 @@ import {
   GET_CARRIER_LIST_FAILED
 } from './types'
 
-import { getCarrierList, getCarrierListSuccess } from './actions'
+import {
+  addCarrierError,
+  addCarrierSuccess,
+  getCarrierList,
+  getCarrierListError,
+  getCarrierListSuccess
+} from './actions'
 
 import { BASE_URL } from '../../config'
 
@@ -31,6 +37,31 @@ function* getCarriersTask(action) {
     yield put(getCarrierListSuccess(data))
   } catch (e) {
     console.log(e)
+    yield put(getCarrierListError(e))
+  }
+}
+
+function* addCarrierTask(action) {
+  const { payload } = action
+  console.log({ action })
+  const { first_name, last_name, email, photo } = payload
+  try {
+    const response = yield call(
+      axios.post,
+      `${BASE_URL}/api/shipper/carrier`,
+      { first_name, last_name, email, photo },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    )
+    const { data } = response
+    console.log({ response })
+    yield put(addCarrierSuccess(data))
+  } catch (e) {
+    console.log(e)
+    yield put(addCarrierError(e))
   }
 }
 
@@ -38,6 +69,10 @@ function* watchGetCarriers() {
   yield takeLatest(GET_CARRIER_LIST_STARTED, getCarriersTask)
 }
 
+function* watchAddCarrier() {
+  yield takeLatest(ADD_CARRIER_STARTED, addCarrierTask)
+}
+
 export default function* saga() {
-  yield watchGetCarriers()
+  yield all([watchGetCarriers(), watchAddCarrier()])
 }

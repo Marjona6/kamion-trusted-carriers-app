@@ -22,3 +22,29 @@ export const getCarrierListError = (error) => ({
   type: GET_CARRIER_LIST_FAILED,
   payload: error
 })
+
+export const addCarrier = (token) => ({
+  type: ADD_CARRIER_STARTED,
+  payload: token
+})
+export const addCarrierSuccess = (data) => ({
+  type: ADD_CARRIER_SUCCEEDED,
+  payload: data
+})
+export const addCarrierError = (error) => ({
+  type: ADD_CARRIER_FAILED,
+  payload: error
+})
+
+export const updateCarrier = (token) => ({
+  type: UPDATE_CARRIER_STARTED,
+  payload: token
+})
+export const updateCarrierSuccess = (data) => ({
+  type: UPDATE_CARRIER_SUCCEEDED,
+  payload: data
+})
+export const updateCarrierError = (error) => ({
+  type: UPDATE_CARRIER_FAILED,
+  payload: error
+})

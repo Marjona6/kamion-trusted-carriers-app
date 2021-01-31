@@ -1,9 +1,15 @@
 import React, { useEffect } from 'react'
+import styled from 'styled-components'
 
 import CarrierListing from '../../molecules/CarrierListing'
 import PrimaryButton from '../../atoms/buttons/PrimaryButton'
 
-const CarrierList = ({ getCarrierList, carrierList, token }) => {
+const ButtonContainer = styled.div`
+  display: flex;
+  justify-content: center;
+`
+
+const CarrierList = ({ getCarrierList, carrierList, token, setShowModal }) => {
   useEffect(() => {
     getCarrierList({ token })
   })
@@ -11,10 +17,12 @@ const CarrierList = ({ getCarrierList, carrierList, token }) => {
     <>
       <CarrierListing />
       <CarrierListing />
-      <PrimaryButton
-        buttonText='Add a carrier'
-        onClick={() => console.log('add a carrier')}
-      />
+      <ButtonContainer>
+        <PrimaryButton
+          buttonText='Add a carrier'
+          onClick={() => setShowModal(true)}
+        />
+      </ButtonContainer>
     </>
   )
 }
