@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import Header from '../src/components/organisms/Header'
+import Header from '../src/components/templates/Header'
 import H2 from '../src/components/atoms/texts/H2'
 
 import LoginForm from '../src/components/templates/LoginForm'

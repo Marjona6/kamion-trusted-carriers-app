@@ -13,14 +13,14 @@ const HeaderDiv = styled.div`
   border-bottom: 5px solid ${(props) => props.theme.dark};
 `
 
-const Header = ({ isUserLoggedIn }) => {
+const Header = ({ isUserLoggedIn, logoutUser }) => {
   return (
     <HeaderDiv>
       <H1>Kamion Trusted Carriers App</H1>
       {isUserLoggedIn ? (
         <Link href='/'>
           <a styled={{ textDecoration: 'none' }}>
-            <PrimaryButton buttonText='Log out' onClick={log} />
+            <PrimaryButton buttonText='Log out' onClick={logoutUser} />
           </a>
         </Link>
       ) : (
