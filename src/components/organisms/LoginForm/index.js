@@ -1,15 +1,11 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import axios from 'axios'
-import { useRouter } from 'next/router'
 
 import LoginContainer from '../../atoms/containers/LoginContainer'
 import TextInput from '../../atoms/inputs/TextInput'
 import PrimaryButton from '../../atoms/buttons/PrimaryButton'
 import TextButton from '../../atoms/buttons/TextButton'
 import H2 from '../../atoms/texts/H2'
-
-import { BASE_URL } from '../../../utils/constants'
 
 const FlexDiv = styled.div`
   display: flex;
@@ -22,9 +18,7 @@ const ButtonsContainer = styled.div`
   padding: 20px;
 `
 
-const LoginForm = ({ setFormToShow }) => {
-  const router = useRouter()
-
+const LoginForm = ({ setFormToShow, loginUser }) => {
   const [username, setUsername] = useState('')
   const [userPassword, setUserPassword] = useState('')
 
@@ -54,16 +48,7 @@ const LoginForm = ({ setFormToShow }) => {
           <PrimaryButton
             buttonText='Log In'
             disabled={username.length < 1 || userPassword.length < 1}
-            onClick={() =>
-              axios({
-                method: 'post',
-                url: `${BASE_URL}/api/shipper/login`,
-                data: {
-                  username: username,
-                  password: userPassword
-                }
-              }).then(router.push('/list'))
-            }
+            onClick={() => loginUser({ username, password: userPassword })}
           />
         </ButtonsContainer>
         <ButtonsContainer>

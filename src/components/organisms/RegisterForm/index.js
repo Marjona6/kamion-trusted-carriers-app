@@ -22,7 +22,7 @@ const ButtonsContainer = styled.div`
   padding: 20px;
 `
 
-const RegisterForm = ({ setFormToShow }) => {
+const RegisterForm = ({ setFormToShow, registerUser }) => {
   const [username, setUsername] = useState('')
   const [userPassword, setUserPassword] = useState('')
   const [reenteredPassword, setReenteredPassword] = useState('')
@@ -118,31 +118,16 @@ const RegisterForm = ({ setFormToShow }) => {
         <ButtonsContainer>
           <PrimaryButton
             buttonText='Register'
-            disabled={setIsSuccessful || !isValidated([valuesArray])}
+            disabled={isSuccessful || !isValidated([valuesArray])}
             onClick={() => {
-              console.log('values to post:', {
-                username,
-                userPassword,
-                reenteredPassword,
-                firstName,
-                lastName,
-                userEmail,
-                phoneNumber
+              registerUser({
+                username: username,
+                password: userPassword,
+                first_name: firstName,
+                last_name: lastName,
+                phone: phoneNumber,
+                email: userEmail
               })
-              axios({
-                method: 'post',
-                url: `${BASE_URL}/api/shipper/register`,
-                data: {
-                  username: username,
-                  password: userPassword,
-                  first_name: firstName,
-                  last_name: lastName,
-                  phone: phoneNumber,
-                  email: userEmail
-                }
-              })
-                .then(setIsSuccessful(true))
-                .then(console.log({ valuesArray }))
             }}
           />
         </ButtonsContainer>
