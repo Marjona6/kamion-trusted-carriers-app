@@ -5,15 +5,27 @@ import H2 from '../src/components/atoms/texts/H2'
 
 import CarrierList from '../src/components/templates/CarrierList'
 import AddCarrierModal from '../src/components/templates/AddCarrierModal'
+import UpdateCarrierModal from '../src/components/templates/UpdateCarrierModal'
 
 const List = () => {
-  const [showModal, setShowModal] = useState(false)
+  const [showAddCarrierModal, setShowAddCarrierModal] = useState(false)
+  const [showUpdateCarrierModal, setShowUpdateCarrierModal] = useState(false)
   return (
     <>
       <Header />
       <H2>My Trusted Carriers</H2>
-      <CarrierList showModal={showModal} setShowModal={setShowModal} />
-      {showModal && <AddCarrierModal setShowModal={setShowModal} />}
+      <CarrierList
+        showAddCarrierModal={showAddCarrierModal}
+        setShowAddCarrierModal={setShowAddCarrierModal}
+      />
+      {showAddCarrierModal && (
+        <AddCarrierModal setShowAddCarrierModal={setShowAddCarrierModal} />
+      )}
+      {showUpdateCarrierModal && (
+        <UpdateCarrierModal
+          setShowUpdateCarrierModal={setShowUpdateCarrierModal}
+        />
+      )}
     </>
   )
 }

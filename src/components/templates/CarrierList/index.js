@@ -1,6 +1,9 @@
 import { connect } from 'react-redux'
 import CarrierList from '../../organisms/CarrierList'
-import { getCarrierList } from '../../../../store/carrier/actions'
+import {
+  getCarrierList,
+  updateCarrier
+} from '../../../../store/carrier/actions'
 
 const mapStateToProps = (state) => ({
   carrierList: state.carrier.carrierList,
@@ -8,7 +11,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = {
-  getCarrierList
+  getCarrierList,
+  updateCarrier
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CarrierList)

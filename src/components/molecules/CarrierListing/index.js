@@ -11,7 +11,8 @@ const CarrierListing = ({
   carrierFirstName,
   carrierLastName,
   carrierEmail,
-  carrierPhotoUrl
+  carrierPhotoUrl,
+  setShowUpdateCarrierModal
 }) => {
   const carrierFullName = `${carrierFirstName} ${carrierLastName}`
   return (
@@ -19,7 +20,10 @@ const CarrierListing = ({
       <H2>{carrierFullName}</H2>
       <P>{carrierEmail}</P>
       <StyledImage src={carrierPhotoUrl} altText={carrierFullName} />
-      <PrimaryButton buttonText='Update carrier data' />
+      <PrimaryButton
+        buttonText='Update carrier data'
+        onClick={setShowUpdateCarrierModal}
+      />
     </Container>
   )
 }

@@ -19,7 +19,11 @@ const transformCarrier = ({ first_name, last_name, email, image }) => ({
 const CarrierList = ({
   getCarrierList,
   carrierList,
+  updateCarrier,
   showModal,
+  showAddCarrierModal,
+  showUpdateCarrierModal,
+  setShowUpdateCarrierModal,
   token,
   setShowModal
 }) => {
@@ -30,7 +34,14 @@ const CarrierList = ({
     <>
       {carrierList.map((carrier) => {
         const transformedCarrier = transformCarrier(carrier)
-        return <CarrierListing key={carrier.id} {...transformedCarrier} />
+        return (
+          <CarrierListing
+            key={carrier.id}
+            setShowUpdateCarrierModal={setShowUpdateCarrierModal}
+            updateCarrier={updateCarrier} // TODO don't think I need to pass this here
+            {...transformedCarrier}
+          />
+        )
       })}
       <ButtonContainer>
         <PrimaryButton
