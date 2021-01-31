@@ -76,3 +76,5 @@ This is an engineering assessment test for a position at
 - add update carrier functionality
 - show the login form after user registers successfully
 - better error handling throughout
+- fix hot reloading issue
+- add atoms & molecule for image upload for carrier photo
