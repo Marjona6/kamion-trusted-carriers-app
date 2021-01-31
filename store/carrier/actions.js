@@ -10,7 +10,7 @@ import {
   GET_CARRIER_LIST_FAILED
 } from './types'
 
-export const getCarrierList = ({ token }) => ({
+export const getCarrierList = (token) => ({
   type: GET_CARRIER_LIST_STARTED,
   payload: token
 })
