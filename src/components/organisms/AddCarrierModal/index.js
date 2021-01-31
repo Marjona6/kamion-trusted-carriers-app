@@ -38,6 +38,7 @@ const AddCarrierModal = ({ addCarrier, setShowModal, token }) => {
         placeholderText='Carrier First Name'
         value={carrierFirstName}
         onChange={(e) => setCarrierFirstName(e.target.value)}
+        required
       />
       <TextInput
         labelText='Carrier Last Name'
@@ -45,6 +46,7 @@ const AddCarrierModal = ({ addCarrier, setShowModal, token }) => {
         placeholderText='Carrier Last Name'
         value={carrierLastName}
         onChange={(e) => setCarrierLastName(e.target.value)}
+        required
       />
       <TextInput
         type='email'
@@ -53,6 +55,7 @@ const AddCarrierModal = ({ addCarrier, setShowModal, token }) => {
         placeholderText='Carrier Email'
         value={carrierEmail}
         onChange={(e) => setCarrierEmail(e.target.value)}
+        required
       />
       <ImageInput
         type='file'
@@ -60,13 +63,13 @@ const AddCarrierModal = ({ addCarrier, setShowModal, token }) => {
         labelId='carrier-photo'
         placeholderText='Carrier Photo'
         onChange={(e) => onImageChange(e)}
+        required
       />
     </>
   )
   return (
     <Modal
       modalText={'Add a New Trusted Carrier'}
-      addCarrier={addCarrier}
       primaryButtonText='Add Carrier'
       secondaryButtonText='Cancel'
       primaryButtonOnClick={() => {
