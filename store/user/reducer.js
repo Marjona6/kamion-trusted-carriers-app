@@ -20,7 +20,6 @@ const initialState = {
 
 const user = (state = initialState, action) => {
   const { payload } = action
-  console.log({ action, payload })
   switch (action.type) {
     case HYDRATE: // required by next-redux-wrapper
       return { ...state }
