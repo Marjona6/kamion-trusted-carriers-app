@@ -69,7 +69,7 @@ const AddCarrierModal = ({ addCarrier, setShowModal, token }) => {
       addCarrier={addCarrier}
       primaryButtonText='Add Carrier'
       secondaryButtonText='Cancel'
-      primaryButtonOnClick={() =>
+      primaryButtonOnClick={() => {
         addCarrier({
           formData: createFormData({
             first_name: carrierFirstName,
@@ -79,7 +79,8 @@ const AddCarrierModal = ({ addCarrier, setShowModal, token }) => {
           }),
           token
         })
-      }
+        setShowModal(false)
+      }}
       secondaryButtonOnClick={() => setShowModal(false)}
       token={token}
       children={children}

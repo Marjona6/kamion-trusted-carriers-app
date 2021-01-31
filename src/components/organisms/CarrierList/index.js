@@ -9,14 +9,29 @@ const ButtonContainer = styled.div`
   justify-content: center;
 `
 
-const CarrierList = ({ getCarrierList, carrierList, token, setShowModal }) => {
+const transformCarrier = ({ first_name, last_name, email, image }) => ({
+  carrierFirstName: first_name,
+  carrierLastName: last_name,
+  carrierEmail: email,
+  carrierPhotoUrl: image
+})
+
+const CarrierList = ({
+  getCarrierList,
+  carrierList,
+  showModal,
+  token,
+  setShowModal
+}) => {
   useEffect(() => {
     getCarrierList({ token })
-  })
+  }, [showModal, JSON.stringify(carrierList)])
   return (
     <>
-      <CarrierListing />
-      <CarrierListing />
+      {carrierList.map((carrier) => {
+        const transformedCarrier = transformCarrier(carrier)
+        return <CarrierListing key={carrier.id} {...transformedCarrier} />
+      })}
       <ButtonContainer>
         <PrimaryButton
           buttonText='Add a carrier'

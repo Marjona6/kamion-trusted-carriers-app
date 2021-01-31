@@ -12,7 +12,7 @@ const List = () => {
     <>
       <Header />
       <H2>My Trusted Carriers</H2>
-      <CarrierList setShowModal={setShowModal} />
+      <CarrierList showModal={showModal} setShowModal={setShowModal} />
       {showModal && <AddCarrierModal setShowModal={setShowModal} />}
     </>
   )

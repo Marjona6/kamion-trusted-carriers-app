@@ -1,6 +1,7 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects'
 import axios from 'axios'
 import Router from 'next/router'
+import get from 'lodash/get'
 
 import {
   ADD_CARRIER_STARTED,
@@ -33,8 +34,7 @@ function* getCarriersTask(action) {
         Authorization: `Bearer ${token}`
       }
     })
-    const { data } = response
-    yield put(getCarrierListSuccess(data))
+    yield put(getCarrierListSuccess(get(response, 'data.data')))
   } catch (e) {
     console.log(e)
     yield put(getCarrierListError(e))

@@ -3,7 +3,7 @@ import CarrierList from '../../organisms/CarrierList'
 import { getCarrierList } from '../../../../store/carrier/actions'
 
 const mapStateToProps = (state) => ({
-  carrierList: state.carrier,
+  carrierList: state.carrier.carrierList,
   token: state.user.token
 })
 

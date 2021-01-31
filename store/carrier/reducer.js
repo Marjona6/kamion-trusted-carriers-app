@@ -20,7 +20,35 @@ const carrier = (state = initialState, action) => {
     case ADD_CARRIER_STARTED:
       return {
         ...state,
+        isLoading: true
+      }
+    case ADD_CARRIER_SUCCEEDED:
+      return {
+        ...state,
+        isLoading: false
+      }
+    case ADD_CARRIER_FAILED:
+      return {
+        ...state,
+        isLoading: false,
+        error: payload // TODO
+      }
+    case GET_CARRIER_LIST_STARTED:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case GET_CARRIER_LIST_SUCCEEDED:
+      return {
+        ...state,
+        isLoading: false,
         carrierList: payload
+      }
+    case GET_CARRIER_LIST_FAILED:
+      return {
+        ...state,
+        isLoading: false,
+        error: payload // TODO
       }
     default:
       return state
