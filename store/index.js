@@ -1,10 +1,22 @@
-import { createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux'
 import { createWrapper } from 'next-redux-wrapper'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import reducers from './reducers'
+import createSagaMiddleware from 'redux-saga'
 
-const makeStore = (initialState = {}) => {
-  return createStore(reducers, initialState, composeWithDevTools())
+import reducers from './reducers'
+import sagas from './sagas'
+
+const makeStore = () => {
+  const sagaMiddleware = createSagaMiddleware()
+
+  const store = createStore(
+    reducers,
+    composeWithDevTools(applyMiddleware(sagaMiddleware))
+  )
+
+  sagaMiddleware.run(sagas)
+
+  return store
 }
 
 export const wrapper = createWrapper(makeStore, { debug: true })
