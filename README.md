@@ -58,6 +58,13 @@ customize it when you are ready for it.
 This is an engineering assessment test for a position at
 [Kamion](https://www.kamion.co).
 
+### Project Functionalities
+
+Users can register, log in, view a list of their trusted carriers, add a trusted
+carrier, and log out.
+
+The app is responsive for easy viewing on both large and small screens.
+
 ### Technologies Used
 
 - React
