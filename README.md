@@ -71,11 +71,11 @@ This is an engineering assessment test for a position at
 - add tests
 - don't let users view /list page if not logged in
 - add a spinner to login page
-- add update carrier functionality
+  (https://www.npmjs.com/package/react-loader-spinner)?
+- add update carrier functionality (use carrier id)
 - show the login form after user registers successfully
 - better error handling throughout
 - fix hot reloading issue
 - mask phone & email in API call when registering a new user
-- close modal after adding carrier successfully
-- set a cookie to persist user login on page refresh
+- use the set cookie to persist user login on page refresh
 - improve styling, colors, appearance
