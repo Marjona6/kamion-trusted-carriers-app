@@ -66,27 +66,13 @@ This is an engineering assessment test for a position at
 - Styled Components
 - Next.js
 
-### Analyzing the Bundle Size
+### TODO
 
-This section has moved here:
-https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here:
-https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here:
-https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here:
-https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here:
-https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- add tests
+- enable add carrier functionality (API call & inputs)
+- don't let users view /list page if not logged in
+- add a spinner to login page
+- display carrier list on /list page
+- add update carrier functionality
+- show the login form after user registers successfully
+- better error handling throughout
