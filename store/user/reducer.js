@@ -24,7 +24,7 @@ const user = (state = initialState, action) => {
     case HYDRATE: // required by next-redux-wrapper
       return { ...state }
     case USER_LOGOUT:
-      return { ...state, user: {} }
+      return { ...state, initialState }
     case USER_LOGIN_STARTED:
       return {
         ...state,
