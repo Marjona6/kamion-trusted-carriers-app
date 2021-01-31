@@ -1,6 +1,8 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects'
 import axios from 'axios'
 import Router from 'next/router'
+import Cookies from 'universal-cookie'
+import get from 'lodash/get'
 
 import {
   USER_LOGIN_STARTED,
@@ -8,7 +10,8 @@ import {
   USER_LOGIN_FAILED,
   USER_REGISTER_STARTED,
   USER_REGISTER_SUCCEEDED,
-  USER_REGISTER_FAILED
+  USER_REGISTER_FAILED,
+  USER_LOGOUT
 } from './types'
 import {
   loginUser,
@@ -30,6 +33,10 @@ function* loginUserTask(action) {
     })
     const { data } = response
     yield put(loginSuccess(data))
+    const cookies = new Cookies()
+    cookies.set('kamionTrustedCarriersApp', get(data, 'data.token'), {
+      path: '/'
+    })
     Router.push({
       pathname: '/list'
     })
@@ -63,6 +70,10 @@ function* registerUserTask(action) {
   }
 }
 
+function* logoutUserTask(action) {
+  cookies.remove('kamionTrustedCarriersApp')
+}
+
 function* watchLoginUser() {
   yield takeLatest(USER_LOGIN_STARTED, loginUserTask)
 }
@@ -70,6 +81,10 @@ function* watchRegisterUser() {
   yield takeLatest(USER_REGISTER_STARTED, registerUserTask)
 }
 
+function* watchLogoutUser() {
+  yield takeLatest(USER_LOGOUT, logoutUserTask)
+}
+
 export default function* saga() {
-  yield all([watchLoginUser(), watchRegisterUser()])
+  yield all([watchLoginUser(), watchRegisterUser(), watchLogoutUser()])
 }
