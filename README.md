@@ -69,7 +69,6 @@ This is an engineering assessment test for a position at
 ### TODO
 
 - add tests
-- enable add carrier functionality (API call & inputs)
 - don't let users view /list page if not logged in
 - add a spinner to login page
 - display carrier list on /list page
@@ -78,3 +77,4 @@ This is an engineering assessment test for a position at
 - better error handling throughout
 - fix hot reloading issue
 - mask phone & email in API call when registering a new user
+- close modal after adding carrier successfully
