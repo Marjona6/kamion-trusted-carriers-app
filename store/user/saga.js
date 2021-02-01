@@ -18,10 +18,14 @@ import {
   logoutUser,
   loginSuccess,
   loginError,
-  registerUser
+  registerUser,
+  registerSuccess,
+  registerError
 } from './actions'
 
 import { BASE_URL } from '../../config'
+
+const cookies = new Cookies()
 
 function* loginUserTask(action) {
   const { payload } = action
@@ -33,7 +37,6 @@ function* loginUserTask(action) {
     })
     const { data } = response
     yield put(loginSuccess(data))
-    const cookies = new Cookies()
     cookies.set('kamionTrustedCarriersApp', get(data, 'data.token'), {
       path: '/'
     })
@@ -70,8 +73,8 @@ function* registerUserTask(action) {
   }
 }
 
-function* logoutUserTask(action) {
-  cookies.remove('kamionTrustedCarriersApp')
+function* logoutUserTask() {
+  yield cookies.remove('kamionTrustedCarriersApp')
 }
 
 function* watchLoginUser() {
