@@ -4,21 +4,10 @@ import Router from 'next/router'
 import Cookies from 'universal-cookie'
 import get from 'lodash/get'
 
+import { USER_LOGIN_STARTED, USER_REGISTER_STARTED, USER_LOGOUT } from './types'
 import {
-  USER_LOGIN_STARTED,
-  USER_LOGIN_SUCCEEDED,
-  USER_LOGIN_FAILED,
-  USER_REGISTER_STARTED,
-  USER_REGISTER_SUCCEEDED,
-  USER_REGISTER_FAILED,
-  USER_LOGOUT
-} from './types'
-import {
-  loginUser,
-  logoutUser,
   loginSuccess,
   loginError,
-  registerUser,
   registerSuccess,
   registerError
 } from './actions'

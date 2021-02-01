@@ -1,27 +1,19 @@
 import { takeLatest, call, put, all } from 'redux-saga/effects'
 import axios from 'axios'
-import Router from 'next/router'
-import get from 'lodash/get'
 
 import {
   ADD_CARRIER_STARTED,
-  ADD_CARRIER_SUCCEEDED,
-  ADD_CARRIER_FAILED,
   UPDATE_CARRIER_STARTED,
-  UPDATE_CARRIER_SUCCEEDED,
-  UPDATE_CARRIER_FAILED,
-  GET_CARRIER_LIST_STARTED,
-  GET_CARRIER_LIST_SUCCEEDED,
-  GET_CARRIER_LIST_FAILED
+  GET_CARRIER_LIST_STARTED
 } from './types'
 
 import {
   addCarrierError,
   addCarrierSuccess,
-  getCarrierList,
   getCarrierListError,
   getCarrierListSuccess,
-  updateCarrierError
+  updateCarrierError,
+  updateCarrierSuccess
 } from './actions'
 
 import { BASE_URL } from '../../config'
@@ -84,7 +76,8 @@ function* updateCarrierTask(action) {
         }
       }
     )
-    // TODO finish this section
+    const { data } = response
+    yield put(updateCarrierSuccess(data))
   } catch (e) {
     console.log(e)
     yield put(updateCarrierError(e))
