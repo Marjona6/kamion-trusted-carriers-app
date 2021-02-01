@@ -39,11 +39,12 @@ const CarrierList = ({
     getCarrierList({ token, page: activePage })
   }, [showAddCarrierModal, showUpdateCarrierModal, JSON.stringify(carrierList)])
 
+  const getCarrierFullName = (first, last) => `${first} ${last}`
   const filteredCarrierList = !!searchText
-    ? carrierList.filter(
-        (carrier) =>
-          carrier.first_name.toUpperCase().includes(searchText.toUpperCase()) ||
-          carrier.last_name.toUpperCase().includes(searchText.toUpperCase())
+    ? carrierList.filter((carrier) =>
+        getCarrierFullName(carrier.first_name, carrier.last_name)
+          .toUpperCase()
+          .includes(searchText.toUpperCase())
       )
     : carrierList
 
