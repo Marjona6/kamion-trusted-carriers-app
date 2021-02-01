@@ -1,3 +1,7 @@
+# Kamion Trusted Carriers App
+
+View the live version [here](https://kamion-trusted-carriers-app.vercel.app/).
+
 This project was bootstrapped with
 [Create React App](https://github.com/facebook/create-react-app), using the
 [Redux](https://redux.js.org/) and
@@ -11,7 +15,9 @@ This is an engineering assessment test for a position at
 ### Project Functionalities
 
 Users can register, log in, view a list of their trusted carriers, add a trusted
-carrier, and log out.
+carrier, update a carrier's name or email, and log out.
+
+Users can also search for carriers by name using a search bar.
 
 The app is responsive for easy viewing on both large and small screens.
 
@@ -74,18 +80,20 @@ Builds the project before deploying to Github Pages.
 
 ### `npm run deploy`
 
-Deploys the project to Github Pages.
+Theoretically, deploys the project to Github Pages.
+
+In reality, it's much easier and more practical to deploy Next.js projects on
+[https://vercel.com](Vercel).
 
 ## TODO
 
-- deploy successfully to github pages (essential)
 - mask phone & email in API call when registering a new user (essential)
 - add tests (essential)
 - better error handling throughout (essential)
 - use the set cookie to persist user login on page refresh (very good to have)
+- add validation to phone & email input fields (very good to have)
 - show the login form after user registers successfully (very good to have)
 - fix hot reloading issue (good to have)
-- add validation to phone & email input fields (good to have)
 - add a spinner to login page
   (https://www.npmjs.com/package/react-loader-spinner)? (nice to have)
 - improve styling, colors, appearance (nice to have)
