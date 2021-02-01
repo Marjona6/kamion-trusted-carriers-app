@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
+import get from 'lodash/get'
 
 import Header from '../src/components/templates/Header'
 import H2 from '../src/components/atoms/texts/H2'
@@ -8,6 +10,15 @@ import AddCarrierModal from '../src/components/templates/AddCarrierModal'
 import UpdateCarrierModal from '../src/components/templates/UpdateCarrierModal'
 
 const List = () => {
+  const isUserLoggedIn = useSelector((state) => !!get(state, 'user.token'))
+  if (!isUserLoggedIn)
+    return (
+      <>
+        <Header />
+        <H2>Please log in to see this page!</H2>
+      </>
+    )
+
   const [showAddCarrierModal, setShowAddCarrierModal] = useState(false)
   const [showUpdateCarrierModal, setShowUpdateCarrierModal] = useState(false)
   return (
