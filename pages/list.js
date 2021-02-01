@@ -8,6 +8,7 @@ import H2 from '../src/components/atoms/texts/H2'
 import CarrierList from '../src/components/templates/CarrierList'
 import AddCarrierModal from '../src/components/templates/AddCarrierModal'
 import UpdateCarrierModal from '../src/components/templates/UpdateCarrierModal'
+import CarrierSearchBar from '../src/components/templates/CarrierSearchBar'
 
 const List = () => {
   const isUserLoggedIn = useSelector((state) => !!get(state, 'user.token'))
@@ -20,14 +21,20 @@ const List = () => {
     )
 
   const [showAddCarrierModal, setShowAddCarrierModal] = useState(false)
-  const [showUpdateCarrierModal, setShowUpdateCarrierModal] = useState(false)
+  const [showUpdateCarrierModal, setShowUpdateCarrierModal] = useState(null) // updated with carrierId to show modal for a specific carrier
+  const [searchText, setSearchText] = useState('')
+
   return (
     <>
       <Header />
       <H2>My Trusted Carriers</H2>
+      <CarrierSearchBar searchText={searchText} setSearchText={setSearchText} />
       <CarrierList
         showAddCarrierModal={showAddCarrierModal}
         setShowAddCarrierModal={setShowAddCarrierModal}
+        showUpdateCarrierModal={showUpdateCarrierModal}
+        setShowUpdateCarrierModal={setShowUpdateCarrierModal}
+        searchText={searchText}
       />
       {showAddCarrierModal && (
         <AddCarrierModal setShowAddCarrierModal={setShowAddCarrierModal} />
@@ -35,6 +42,7 @@ const List = () => {
       {showUpdateCarrierModal && (
         <UpdateCarrierModal
           setShowUpdateCarrierModal={setShowUpdateCarrierModal}
+          carrierId={showUpdateCarrierModal}
         />
       )}
     </>
