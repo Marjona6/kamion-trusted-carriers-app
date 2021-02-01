@@ -19,6 +19,7 @@ const PageNavigation = ({ activePage = 1, lastPage = 1, onClick }) => {
     <ButtonsContainer>
       {pagesArray.map((page) => (
         <TinyButton
+          key={page}
           active={page === activePage}
           buttonText={page}
           onClick={onClick}

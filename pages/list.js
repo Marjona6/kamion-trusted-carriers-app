@@ -12,6 +12,11 @@ import CarrierSearchBar from '../src/components/templates/CarrierSearchBar'
 
 const List = () => {
   const isUserLoggedIn = useSelector((state) => !!get(state, 'user.token'))
+
+  const [showAddCarrierModal, setShowAddCarrierModal] = useState(false)
+  const [showUpdateCarrierModal, setShowUpdateCarrierModal] = useState(null) // updated with carrierId to show modal for a specific carrier
+  const [searchText, setSearchText] = useState('')
+
   if (!isUserLoggedIn)
     return (
       <>
@@ -19,10 +24,6 @@ const List = () => {
         <H2>Please log in to see this page!</H2>
       </>
     )
-
-  const [showAddCarrierModal, setShowAddCarrierModal] = useState(false)
-  const [showUpdateCarrierModal, setShowUpdateCarrierModal] = useState(null) // updated with carrierId to show modal for a specific carrier
-  const [searchText, setSearchText] = useState('')
 
   return (
     <>
