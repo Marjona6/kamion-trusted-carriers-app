@@ -76,7 +76,6 @@ The app is responsive for easy viewing on both large and small screens.
 ### TODO
 
 - add tests
-- don't let users view /list page if not logged in
 - add a spinner to login page
   (https://www.npmjs.com/package/react-loader-spinner)?
 - add update carrier functionality (use carrier id)
@@ -86,3 +85,6 @@ The app is responsive for easy viewing on both large and small screens.
 - mask phone & email in API call when registering a new user
 - use the set cookie to persist user login on page refresh
 - improve styling, colors, appearance
+- deploy successfully to github pages
+- add pagination to /list page
+- add filtering/search by name
