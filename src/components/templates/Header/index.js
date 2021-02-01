@@ -2,9 +2,7 @@ import { connect } from 'react-redux'
 import Header from '../../organisms/Header'
 import { logoutUser } from '../../../../store/user/actions'
 
-const mapStateToProps = (state) => ({
-  isUserLoggedIn: !!state.user.token
-})
+const mapStateToProps = () => ({})
 
 const mapDispatchToProps = {
   logoutUser

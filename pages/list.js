@@ -15,7 +15,7 @@ const List = () => {
   if (!isUserLoggedIn)
     return (
       <>
-        <Header />
+        <Header isUserLoggedIn={isUserLoggedIn} />
         <H2>Please log in to see this page!</H2>
       </>
     )
@@ -26,7 +26,7 @@ const List = () => {
 
   return (
     <>
-      <Header />
+      <Header isUserLoggedIn={isUserLoggedIn} />
       <H2>My Trusted Carriers</H2>
       <CarrierSearchBar searchText={searchText} setSearchText={setSearchText} />
       <CarrierList
