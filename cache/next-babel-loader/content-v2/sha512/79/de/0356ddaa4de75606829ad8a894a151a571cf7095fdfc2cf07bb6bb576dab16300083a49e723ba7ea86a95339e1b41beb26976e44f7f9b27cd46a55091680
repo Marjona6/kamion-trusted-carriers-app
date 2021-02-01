@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { connect } from 'react-redux';\nimport Header from '../../organisms/Header';\nimport { logoutUser } from '../../../../store/user/actions';\n\nconst mapStateToProps = () => ({});\n\nconst mapDispatchToProps = {\n  logoutUser\n};\nexport default connect(mapStateToProps, mapDispatchToProps)(Header);","map":null,"metadata":{},"sourceType":"module"}

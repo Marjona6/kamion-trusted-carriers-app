@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from 'styled-components';\nconst H1 = styled.h1.withConfig({\n  displayName: \"H1\",\n  componentId: \"brxhmn-0\"\n})([\"font-size:24px;color:\", \";\"], props => props.theme.dark);\nexport default H1;","map":null,"metadata":{},"sourceType":"module"}

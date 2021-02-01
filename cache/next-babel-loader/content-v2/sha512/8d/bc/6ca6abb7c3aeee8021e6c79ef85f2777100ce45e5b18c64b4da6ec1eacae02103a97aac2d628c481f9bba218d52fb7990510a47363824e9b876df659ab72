@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { all } from 'redux-saga/effects';\nimport userSaga from './user/saga';\nimport carrierSaga from './carrier/saga';\nexport default function* sagas() {\n  yield all([userSaga(), carrierSaga()]);\n}","map":null,"metadata":{},"sourceType":"module"}

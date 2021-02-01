@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from 'styled-components';\nconst H2 = styled.h2.withConfig({\n  displayName: \"H2\",\n  componentId: \"i55ozj-0\"\n})([\"font-size:22px;color:\", \";\"], props => props.theme.dark);\nexport default H2;","map":null,"metadata":{},"sourceType":"module"}

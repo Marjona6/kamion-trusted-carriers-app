@@ -1,0 +1,1 @@
+{"ast":null,"code":"var theme = {\n  font: 'Helvetica,Arial,sans-serif',\n  dark: '#0B1C4D',\n  light: '#FFFFFF',\n  primary: '#32A0FB',\n  secondary: '#FFFD00',\n  error: '#CB001C',\n  success: '#00AA00'\n};\nexport default theme;","map":null,"metadata":{},"sourceType":"module"}

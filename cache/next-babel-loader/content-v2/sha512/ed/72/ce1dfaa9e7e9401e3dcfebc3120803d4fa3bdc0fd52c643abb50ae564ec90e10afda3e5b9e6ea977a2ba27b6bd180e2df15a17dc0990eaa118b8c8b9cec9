@@ -1,0 +1,1 @@
+{"ast":null,"code":"import styled from 'styled-components';\nconst P = styled.p.withConfig({\n  displayName: \"ErrorText__P\",\n  componentId: \"im4x0n-0\"\n})([\"font-size:12px;color:\", \";\"], props => props.theme.error);\nexport default P;","map":null,"metadata":{},"sourceType":"module"}

@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { connect } from 'react-redux';\nimport { loginUser } from '../../../../store/user/actions';\nimport LoginForm from '../../organisms/LoginForm';\nconst mapDispatchToProps = {\n  loginUser\n};\nexport default connect(null, mapDispatchToProps)(LoginForm);","map":null,"metadata":{},"sourceType":"module"}

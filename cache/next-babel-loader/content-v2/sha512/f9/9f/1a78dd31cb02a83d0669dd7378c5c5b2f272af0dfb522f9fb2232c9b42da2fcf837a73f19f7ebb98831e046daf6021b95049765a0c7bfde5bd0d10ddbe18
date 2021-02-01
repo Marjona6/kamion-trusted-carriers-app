@@ -1,0 +1,1 @@
+{"ast":null,"code":"import { combineReducers } from 'redux';\nimport user from './user/reducer';\nimport carrier from './carrier/reducer';\nexport default combineReducers({\n  user,\n  carrier\n});","map":null,"metadata":{},"sourceType":"module"}
