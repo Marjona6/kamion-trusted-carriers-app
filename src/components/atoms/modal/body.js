@@ -12,7 +12,7 @@ const Body = styled.div`
   align-self: center;
   position: static;
   border: 5px solid ${(props) => props.theme.secondary};
-  border-radius: 15px;
+  border-radius: 30px;
   @media (max-width: 600px) {
     min-height: 100%;
     margin: 0;

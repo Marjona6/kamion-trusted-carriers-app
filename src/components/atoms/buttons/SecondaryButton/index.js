@@ -4,10 +4,10 @@ const Button = styled.button`
   color: ${(props) => props.theme.dark};
   background-color: ${(props) => props.theme.primary};
   border: 5px solid ${(props) => props.theme.dark};
-  border-radius: 10px;
+  border-radius: 30px;
   padding: 10px;
   font-size: 16px;
-  min-width: 125px;
+  min-width: 175px;
 `
 
 const SecondaryButton = ({ buttonText, disabled, onClick }) => {
