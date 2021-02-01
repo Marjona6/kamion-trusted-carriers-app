@@ -75,16 +75,15 @@ The app is responsive for easy viewing on both large and small screens.
 
 ### TODO
 
-- add tests
+- deploy successfully to github pages (essential)
+- mask phone & email in API call when registering a new user (essential)
+- add tests (essential)
+- better error handling throughout (essential)
+- use the set cookie to persist user login on page refresh (very good to have)
+- show the login form after user registers successfully (very good to have)
+- fix hot reloading issue (good to have)
+- add validation to phone & email input fields (good to have)
 - add a spinner to login page
-  (https://www.npmjs.com/package/react-loader-spinner)?
-- add update carrier functionality (use carrier id)
-- show the login form after user registers successfully
-- better error handling throughout
-- fix hot reloading issue
-- mask phone & email in API call when registering a new user
-- use the set cookie to persist user login on page refresh
-- improve styling, colors, appearance
-- deploy successfully to github pages
-- add pagination to /list page
-- add filtering/search by name
+  (https://www.npmjs.com/package/react-loader-spinner)? (nice to have)
+- improve styling, colors, appearance (nice to have)
+- enable searching across all pages (nice to have)
