@@ -28,14 +28,18 @@ import { BASE_URL } from '../../config'
 
 function* getCarriersTask(action) {
   const { payload } = action
-  const { token } = payload
+  const { token, page = 1 } = payload
   try {
-    const response = yield call(axios.get, `${BASE_URL}/api/shipper/carrier`, {
-      headers: {
-        Authorization: `Bearer ${token}`
+    const response = yield call(
+      axios.get,
+      `${BASE_URL}/api/shipper/carrier?page=${page}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
       }
-    })
-    yield put(getCarrierListSuccess(get(response, 'data.data')))
+    )
+    yield put(getCarrierListSuccess(response.data))
   } catch (e) {
     console.log(e)
     yield put(getCarrierListError(e))
@@ -66,7 +70,6 @@ function* addCarrierTask(action) {
 }
 
 function* updateCarrierTask(action) {
-  console.log('update carrier task', { action })
   const { payload } = action
   const { token, formData, carrierId } = payload
   try {
@@ -81,6 +84,7 @@ function* updateCarrierTask(action) {
         }
       }
     )
+    // TODO finish this section
   } catch (e) {
     console.log(e)
     yield put(updateCarrierError(e))

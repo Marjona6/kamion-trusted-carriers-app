@@ -10,9 +10,9 @@ import {
   GET_CARRIER_LIST_FAILED
 } from './types'
 
-export const getCarrierList = (token) => ({
+export const getCarrierList = ({ token, page }) => ({
   type: GET_CARRIER_LIST_STARTED,
-  payload: token
+  payload: { token, page }
 })
 export const getCarrierListSuccess = (data) => ({
   type: GET_CARRIER_LIST_SUCCEEDED,

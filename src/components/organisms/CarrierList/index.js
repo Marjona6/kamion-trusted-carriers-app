@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 import CarrierListing from '../../molecules/CarrierListing'
 import PrimaryButton from '../../atoms/buttons/PrimaryButton'
+import PageNavigation from '../../molecules/PageNavigation'
 
 const ButtonContainer = styled.div`
   display: flex;
@@ -25,10 +26,17 @@ const CarrierList = ({
   setShowUpdateCarrierModal,
   token,
   setShowAddCarrierModal,
-  searchText
+  searchText,
+  meta = {}
 }) => {
+  const { current_page, last_page } = meta
+  const [activePage, setActivePage] = useState(current_page || 1)
   useEffect(() => {
-    getCarrierList({ token })
+    getCarrierList({ token, page: activePage })
+  }, [activePage])
+
+  useEffect(() => {
+    getCarrierList({ token, page: activePage })
   }, [showAddCarrierModal, showUpdateCarrierModal, JSON.stringify(carrierList)])
 
   const filteredCarrierList = !!searchText
@@ -38,6 +46,7 @@ const CarrierList = ({
           carrier.last_name.toUpperCase().includes(searchText.toUpperCase())
       )
     : carrierList
+
   return (
     <>
       {filteredCarrierList.map((carrier) => {
@@ -52,6 +61,11 @@ const CarrierList = ({
           />
         )
       })}
+      <PageNavigation
+        activePage={activePage}
+        onClick={(e) => setActivePage(parseInt(e.target.textContent), 10)}
+        lastPage={last_page}
+      />
       <ButtonContainer>
         <PrimaryButton
           buttonText='Add a carrier'
