@@ -7,7 +7,8 @@ import {
 
 const mapStateToProps = (state) => ({
   carrierList: state.carrier.carrierList,
-  token: state.user.token
+  token: state.user.token,
+  meta: state.carrier.meta
 })
 
 const mapDispatchToProps = {
