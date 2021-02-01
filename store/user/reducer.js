@@ -15,7 +15,8 @@ const initialState = {
   firstName: '',
   lastName: '',
   email: '',
-  phoneNumber: ''
+  phoneNumber: '',
+  didRegisterSuccessfully: false
 }
 
 const user = (state = initialState, action) => {
@@ -28,7 +29,8 @@ const user = (state = initialState, action) => {
     case USER_LOGIN_STARTED:
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
+        didRegisterSuccessfully: false
       }
     case USER_LOGIN_SUCCEEDED:
       return {
@@ -58,7 +60,8 @@ const user = (state = initialState, action) => {
     case USER_REGISTER_SUCCEEDED:
       return {
         ...state,
-        isLoading: false
+        isLoading: false,
+        didRegisterSuccessfully: true
       }
     case USER_REGISTER_FAILED:
       return {

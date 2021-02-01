@@ -16,6 +16,7 @@ const initialState = {
 
 const carrier = (state = initialState, action) => {
   const { payload } = action
+  console.log({ action })
   switch (action.type) {
     case ADD_CARRIER_STARTED:
       return {
@@ -23,15 +24,37 @@ const carrier = (state = initialState, action) => {
         isLoading: true
       }
     case ADD_CARRIER_SUCCEEDED:
+      const { data } = payload
+      console.log({ payload })
       return {
         ...state,
-        isLoading: false
+        isLoading: false,
+        carrierList: {
+          ...state.carrier.carrierList,
+          data
+        }
       }
     case ADD_CARRIER_FAILED:
       return {
         ...state,
         isLoading: false,
         error: payload // TODO
+      }
+    case UPDATE_CARRIER_STARTED:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case UPDATE_CARRIER_SUCCEEDED:
+      return {
+        ...state,
+        isLoading: false
+      }
+    case UPDATE_CARRIER_FAILED:
+      return {
+        ...state,
+        isLoading: false,
+        error: payload
       }
     case GET_CARRIER_LIST_STARTED:
       return {

@@ -20,7 +20,8 @@ import {
   addCarrierSuccess,
   getCarrierList,
   getCarrierListError,
-  getCarrierListSuccess
+  getCarrierListSuccess,
+  updateCarrierError
 } from './actions'
 
 import { BASE_URL } from '../../config'
@@ -64,6 +65,28 @@ function* addCarrierTask(action) {
   }
 }
 
+function* updateCarrierTask(action) {
+  console.log('update carrier task', { action })
+  const { payload } = action
+  const { token, formData, carrierId } = payload
+  try {
+    const response = yield call(
+      axios.post,
+      `${BASE_URL}/api/shipper/update-carrier/${carrierId}`,
+      formData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data'
+        }
+      }
+    )
+  } catch (e) {
+    console.log(e)
+    yield put(updateCarrierError(e))
+  }
+}
+
 function* watchGetCarriers() {
   yield takeLatest(GET_CARRIER_LIST_STARTED, getCarriersTask)
 }
@@ -72,6 +95,10 @@ function* watchAddCarrier() {
   yield takeLatest(ADD_CARRIER_STARTED, addCarrierTask)
 }
 
+function* watchUpdateCarrier() {
+  yield takeLatest(UPDATE_CARRIER_STARTED, updateCarrierTask)
+}
+
 export default function* saga() {
-  yield all([watchGetCarriers(), watchAddCarrier()])
+  yield all([watchGetCarriers(), watchAddCarrier(), watchUpdateCarrier()])
 }
