@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
-import axios from 'axios'
 
 import LoginContainer from '../../atoms/containers/LoginContainer'
 import TextInput from '../../atoms/inputs/TextInput'
@@ -8,8 +7,6 @@ import PrimaryButton from '../../atoms/buttons/PrimaryButton'
 import TextButton from '../../atoms/buttons/TextButton'
 import H2 from '../../atoms/texts/H2'
 import ErrorText from '../../atoms/texts/ErrorText'
-
-import { BASE_URL } from '../../../utils/constants'
 
 const FlexDiv = styled.div`
   display: flex;
@@ -22,7 +19,11 @@ const ButtonsContainer = styled.div`
   padding: 20px;
 `
 
-const RegisterForm = ({ setFormToShow, registerUser }) => {
+const RegisterForm = ({
+  setFormToShow,
+  registerUser,
+  didRegisterSuccessfully
+}) => {
   const [username, setUsername] = useState('')
   const [userPassword, setUserPassword] = useState('')
   const [reenteredPassword, setReenteredPassword] = useState('')
@@ -44,6 +45,10 @@ const RegisterForm = ({ setFormToShow, registerUser }) => {
   const isValidated = (values) => !values.some((value) => value.length < 1)
 
   const [isSuccessful, setIsSuccessful] = useState(false)
+
+  useEffect(() => {
+    didRegisterSuccessfully ? setIsSuccessful(true) : setIsSuccessful(false)
+  }, [didRegisterSuccessfully])
 
   return (
     <FlexDiv>

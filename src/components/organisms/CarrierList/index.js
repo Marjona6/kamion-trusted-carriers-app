@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 
 import CarrierListing from '../../molecules/CarrierListing'
@@ -20,25 +20,34 @@ const CarrierList = ({
   getCarrierList,
   carrierList,
   updateCarrier,
-  showModal,
   showAddCarrierModal,
   showUpdateCarrierModal,
   setShowUpdateCarrierModal,
   token,
-  setShowModal
+  setShowAddCarrierModal,
+  searchText
 }) => {
   useEffect(() => {
     getCarrierList({ token })
-  }, [showModal, JSON.stringify(carrierList)])
+  }, [showAddCarrierModal, showUpdateCarrierModal, JSON.stringify(carrierList)])
+
+  const filteredCarrierList = !!searchText
+    ? carrierList.filter(
+        (carrier) =>
+          carrier.first_name.toUpperCase().includes(searchText.toUpperCase()) ||
+          carrier.last_name.toUpperCase().includes(searchText.toUpperCase())
+      )
+    : carrierList
   return (
     <>
-      {carrierList.map((carrier) => {
+      {filteredCarrierList.map((carrier) => {
         const transformedCarrier = transformCarrier(carrier)
         return (
           <CarrierListing
             key={carrier.id}
+            carrierId={carrier.id}
             setShowUpdateCarrierModal={setShowUpdateCarrierModal}
-            updateCarrier={updateCarrier} // TODO don't think I need to pass this here
+            updateCarrier={updateCarrier}
             {...transformedCarrier}
           />
         )
@@ -46,7 +55,7 @@ const CarrierList = ({
       <ButtonContainer>
         <PrimaryButton
           buttonText='Add a carrier'
-          onClick={() => setShowModal(true)}
+          onClick={() => setShowAddCarrierModal(true)}
         />
       </ButtonContainer>
     </>

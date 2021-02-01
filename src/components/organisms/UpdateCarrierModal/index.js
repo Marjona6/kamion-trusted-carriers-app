@@ -2,14 +2,29 @@ import React, { useState } from 'react'
 
 import Modal from '../../molecules/Modal'
 import TextInput from '../../atoms/inputs/TextInput'
+import { getCarrierList } from '../../../../store/carrier/actions'
 
-const UpdateCarrierModal = ({ addCarrier, setShowModal, token }) => {
-  // TODO pass in values for first_name, last_name, email based on the id of the carrier
-  const [carrierFirstName, setCarrierFirstName] = useState('') // TODO default these values to the values passed in
-  const [carrierLastName, setCarrierLastName] = useState('')
-  const [carrierEmail, setCarrierEmail] = useState('')
+const UpdateCarrierModal = ({
+  updateCarrier,
+  setShowUpdateCarrierModal,
+  token,
+  carrierId,
+  carrierList,
+  getCarrierList
+}) => {
+  const selectedCarrier = carrierList.find(
+    (carrier) => carrier.id === carrierId
+  )
+  const [carrierFirstName, setCarrierFirstName] = useState(
+    selectedCarrier.first_name || ''
+  )
+  const [carrierLastName, setCarrierLastName] = useState(
+    selectedCarrier.last_name || ''
+  )
+  const [carrierEmail, setCarrierEmail] = useState(selectedCarrier.email || '')
 
   const createFormData = (values) => {
+    console.log({ values })
     let formData = new FormData()
 
     const { first_name, last_name, email } = values
@@ -55,16 +70,16 @@ const UpdateCarrierModal = ({ addCarrier, setShowModal, token }) => {
       primaryButtonOnClick={() => {
         updateCarrier({
           formData: createFormData({
-            // TODO fix this so it doesn't send all fields, only the changed ones
             first_name: carrierFirstName,
             last_name: carrierLastName,
             email: carrierEmail
           }),
           token
         })
-        setShowModal(false)
+        getCarrierList(token)
+        setShowUpdateCarrierModal(false)
       }}
-      secondaryButtonOnClick={() => setShowModal(false)}
+      secondaryButtonOnClick={() => setShowUpdateCarrierModal(false)}
       token={token}
       children={children}
     />

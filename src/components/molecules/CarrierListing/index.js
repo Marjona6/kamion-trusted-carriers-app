@@ -1,5 +1,4 @@
 import React from 'react'
-import styled from 'styled-components'
 
 import H2 from '../../atoms/texts/H2'
 import P from '../../atoms/texts/P'
@@ -8,6 +7,7 @@ import PrimaryButton from '../../atoms/buttons/PrimaryButton'
 import StyledImage from '../../atoms/image'
 
 const CarrierListing = ({
+  carrierId,
   carrierFirstName,
   carrierLastName,
   carrierEmail,
@@ -22,7 +22,7 @@ const CarrierListing = ({
       <StyledImage src={carrierPhotoUrl} altText={carrierFullName} />
       <PrimaryButton
         buttonText='Update carrier data'
-        onClick={setShowUpdateCarrierModal}
+        onClick={() => setShowUpdateCarrierModal(carrierId)}
       />
     </Container>
   )
