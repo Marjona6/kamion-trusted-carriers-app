@@ -2,15 +2,13 @@ import React, { useState } from 'react'
 
 import Modal from '../../molecules/Modal'
 import TextInput from '../../atoms/inputs/TextInput'
-import { getCarrierList } from '../../../../store/carrier/actions'
 
 const UpdateCarrierModal = ({
   updateCarrier,
   setShowUpdateCarrierModal,
   token,
   carrierId,
-  carrierList,
-  getCarrierList
+  carrierList
 }) => {
   const selectedCarrier = carrierList.find(
     (carrier) => carrier.id === carrierId
@@ -74,9 +72,9 @@ const UpdateCarrierModal = ({
             last_name: carrierLastName,
             email: carrierEmail
           }),
-          token
+          token,
+          carrierId
         })
-        getCarrierList(token)
         setShowUpdateCarrierModal(false)
       }}
       secondaryButtonOnClick={() => setShowUpdateCarrierModal(false)}

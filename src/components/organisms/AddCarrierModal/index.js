@@ -4,7 +4,7 @@ import Modal from '../../molecules/Modal'
 import TextInput from '../../atoms/inputs/TextInput'
 import ImageInput from '../../atoms/inputs/ImageInput'
 
-const AddCarrierModal = ({ addCarrier, setShowModal, token }) => {
+const AddCarrierModal = ({ addCarrier, setShowAddCarrierModal, token }) => {
   const [carrierFirstName, setCarrierFirstName] = useState('')
   const [carrierLastName, setCarrierLastName] = useState('')
   const [carrierEmail, setCarrierEmail] = useState('')
@@ -82,9 +82,9 @@ const AddCarrierModal = ({ addCarrier, setShowModal, token }) => {
           }),
           token
         })
-        setShowModal(false)
+        setShowAddCarrierModal(false)
       }}
-      secondaryButtonOnClick={() => setShowModal(false)}
+      secondaryButtonOnClick={() => setShowAddCarrierModal(false)}
       token={token}
       children={children}
     />

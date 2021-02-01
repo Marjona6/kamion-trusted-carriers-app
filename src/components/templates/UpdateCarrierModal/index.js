@@ -3,8 +3,8 @@ import UpdateCarrierModal from '../../organisms/UpdateCarrierModal'
 import { updateCarrier } from '../../../../store/carrier/actions'
 
 const mapStateToProps = (state) => ({
-  token: state.user.token
-  // TODO pass carrierList?
+  token: state.user.token,
+  carrierList: state.carrier.carrierList
 })
 
 const mapDispatchToProps = {
